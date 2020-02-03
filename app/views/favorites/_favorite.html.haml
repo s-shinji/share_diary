@@ -1,0 +1,13 @@
+-unless topic.favorite_user(current_user.id).blank? 
+  = link_to topic_favorite_path(topic_id: topic.id ,id: topic.favorites[0].id), method: :delete, class:"favorite-link", remote: true do 
+    .vertical_favorite
+      = icon('fas', 'star', class:"awesome-icons blue-text")
+      %span.blue-text
+        = topic.favorites_count 
+-else
+  = link_to topic_favorites_path(topic_id: topic.id), method: :post, class:"favorite-link", remote: true do 
+    .vertical_favorite
+      = icon( 'far', 'star', class:"awesome-icon gray-text text-darken-2")
+      %span.gray-text.text-darken-2
+        = topic.favorites_count 
+  

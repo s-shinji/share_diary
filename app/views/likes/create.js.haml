@@ -1,0 +1,2 @@
+$('#likes_buttons_#{@tweet.id}').html("#{j(render partial: 'likes/like', locals: {tweet: @tweet})}");
+-# jsの場合はbuttonsの後の_が必要？

@@ -1,0 +1,16 @@
+.vertical_like {
+  display: inline-block;
+  margin-left: 10px;
+}
+.like-link {
+  text-decoration: none;
+
+  .red-text {
+    color: red;
+  }
+
+  .gray-text {
+    color: gray;
+  }
+  
+}

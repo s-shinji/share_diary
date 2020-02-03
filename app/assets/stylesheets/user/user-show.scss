@@ -1,0 +1,68 @@
+.user-avatar {
+  height: 200px;
+  width: 200px;
+  border-radius: 100%;
+}
+.user-name {
+  margin-top: 30px;
+}
+.user-info {
+  &__introduce {
+    display: inline-block;
+    border: 1px gray solid;
+  }
+}
+.user-tweets {
+  .tweet-list {
+    padding-left:20px;
+    margin-bottom:30px;
+
+    &__name {
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    &__item {
+      display: none;
+      margin-left: 20px;
+      .tweet-title {
+        color: gray;
+        display: inline-block;
+        margin-right: 50px;
+        &:hover {
+          color: blue;
+        }
+      }
+    }
+  }
+}
+.user-follower {
+  .follower-list {
+    padding-left:20px;
+    margin-bottom:30px;
+
+    &__name {
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    &__item {
+      display: none;
+      margin-left: 20px;
+      .follower-avatar {
+        color: gray;
+        display: inline-block;
+        margin-right: 50px;
+        &:hover {
+          color: blue;
+        }
+
+        .avatar {
+          @include avatar();
+        }
+      } 
+    }   
+  }
+}
+
+

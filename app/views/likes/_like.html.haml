@@ -1,0 +1,13 @@
+-unless tweet.like_user(current_user.id).blank? 
+  = link_to topic_tweet_like_path(tweet_id: tweet.id ,id: tweet.likes[0].id), method: :delete, class:"like-link", remote: true do 
+    .vertical_like
+      = icon('fas', 'heart', class:"awesome-icons red-text")
+      %span.red-text
+        = tweet.likes_count 
+-else
+  = link_to topic_tweet_likes_path(tweet_id: tweet.id), method: :post, class:"like-link", remote: true do 
+    .vertical_like
+      = icon( 'far', 'heart', class:"awesome-icon gray-text text-darken-2")
+      %span.gray-text.text-darken-2
+        = tweet.likes_count 
+  

@@ -1,0 +1,87 @@
+.top
+  .top__left
+    = icon('fas', 'bars',class: "bars-show")
+    = link_to "Logout", destroy_user_session_path, method: :delete
+    = link_to new_topic_tweet_path(@topic) do
+      = icon('fas', 'paper-plane')
+    = link_to  topics_path do
+      = icon('fas', 'search')
+
+  .top__right
+    = link_to 'トピック作成', new_topic_path, class: 'link'
+    = link_to 'マイページ', edit_user_registration_path, class: 'link'
+
+.main
+  .bars-list
+    .list
+      .list__name
+        topic
+        %span +
+      .list__item
+        - current_user.favorites.each do |favorite|
+          .topic
+            = link_to topic_tweets_path(favorite.topic.id),class: "topic-name" do
+              = favorite.topic.name 
+
+    .list
+      .list__name
+        follow
+        %span +
+      .list__item
+        - current_user.followings.each do |following|
+          .follow
+            = link_to user_path(following.id),class:"follow-name" do
+              -if following.avatar.present? 
+                = image_tag following.avatar.url, class:"avatar"
+              -else
+                = image_tag "/assets/default.jpg", class:"avatar"
+              = following.name
+  .main__search
+    = @topic.name
+    #favorites_buttons{id: @topic.id}
+      = render partial: 'favorites/favorite', locals: { topic: @topic, favorites: @favorites}
+
+
+  .main__box
+    .left
+      - @tweets.each do |tweet|
+        - if tweet.images.blank?
+          .text-box
+            .text-title
+              = link_to tweet.title, topic_tweet_path(@topic,tweet),class:"text-title__link"
+            .text-info
+              .text-info__name
+                = link_to topic_tweet_user_path(@topic,tweet,tweet.user.id) do
+                  -if tweet.user.avatar.present? 
+                    = image_tag tweet.user.avatar.url, class:"avatar"
+                  -else
+                    = image_tag "/assets/default.jpg", class:"avatar"
+
+
+              .text-info__time
+                = tweet.created_at.to_s(:datetime_jp)
+            #likes_buttons{id: tweet.id}
+              = render partial: 'likes/like', locals: { tweet: tweet, likes: @likes}
+    .right
+      - @tweets.each do |tweet|
+        - if tweet.images.present?
+          .image-box
+            .image-title
+              = link_to tweet.title, topic_tweet_path(@topic,tweet), class:"image-title__link"
+            .image-info
+              .image-info__name
+                = link_to topic_tweet_user_path(@topic,tweet,tweet.user.id) do
+                  -if tweet.user.avatar.present? 
+                    = image_tag tweet.user.avatar.url, class:"avatar"
+                  -else
+                    = image_tag "/assets/default.jpg", class:"avatar"
+              .image-info__time
+                = tweet.created_at.to_s(:datetime_jp)
+            - tweet.images.each do |image|
+              .image
+                = image_tag image.src.url, class:"image-tag"
+            #likes_buttons{id: tweet.id}
+              = render partial: 'likes/like', locals: { tweet: tweet, likes: @likes}
+
+.bottom
+  &copy; share_diary 2020.

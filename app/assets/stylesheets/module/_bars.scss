@@ -1,0 +1,43 @@
+.bars-list {
+  display: none;
+  background-color: silver;
+  color: white;
+  width: 200px;
+  height: 100%;
+  position: fixed;
+  top: 80px;
+  left: 0;
+  z-index: 1;
+  border-radius: 5px;
+  padding-top: 20px;
+
+  .list {
+    padding-left:20px;
+    margin-bottom:30px;
+
+    &__name {
+      cursor: pointer;
+    }
+
+    &__item {
+      display: none;
+      margin-left: 20px;
+      .topic {
+        .topic-name {
+          color: white;
+          display: block;
+        }
+      }
+
+      .follow {
+
+        .follow-name {
+          color: white;
+          .avatar{
+            @include avatar();
+          }  
+        }
+      }
+    }
+  }
+}

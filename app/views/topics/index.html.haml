@@ -1,0 +1,45 @@
+.top
+  .top__left
+    = icon('fas', 'bars', class: "bars-show")
+    = link_to "Logout", destroy_user_session_path, method: :delete
+
+  .top__right
+    = link_to 'トピック作成', new_topic_path, class: 'link'
+    = link_to 'マイページ', edit_user_registration_path, class: 'link'
+
+.search
+  .bars-list
+    .list
+      .list__name
+        topic
+        %span +
+      .list__item
+        - current_user.favorites.each do |favorite|
+          .topic
+            = link_to topic_tweets_path(favorite.topic.id),class: "topic-name" do
+              = favorite.topic.name 
+    .list
+      .list__name
+        follow
+        %span +
+      .list__item
+        - current_user.followings.each do |following|
+          .follow
+            = link_to user_path(following.id),class:"follow-name" do
+              -if following.avatar.present? 
+                = image_tag following.avatar.url, class:"avatar"
+              -else
+                = image_tag "/assets/default.jpg", class:"avatar"
+              = following.name
+        -# - current_user.relationships.each do |relationship|
+        -#   .follow
+        -#     = link_to user_path(relationship.user.id),class:"follow-name" do
+        -#       = image_tag relationship.user.avatar.url, class:"avatar"
+        -#       = relationship.user.name
+  .search-box
+    %input.input#search-topics{placeholder: "トピック検索", type: "text" }
+    #search-result
+
+
+.bottom
+  &copy; share_diary 2020.

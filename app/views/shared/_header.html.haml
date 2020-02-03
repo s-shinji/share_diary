@@ -1,0 +1,10 @@
+.header
+  .header__left
+    = link_to 'Top', root_path, class: 'link'
+    = link_to "Logout", destroy_user_session_path, method: :delete
+
+
+
+  .header__right
+    = link_to 'トピック作成', new_topic_path, class: 'link'
+    = link_to 'マイページ', edit_user_registration_path, class: 'link'

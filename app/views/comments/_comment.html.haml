@@ -1,0 +1,19 @@
+%h4 コメント一覧
+-if comments.present?
+  - comments.each do |comment|
+    .post-comments__avatar
+      =link_to topic_tweet_user_path(@topic,@tweet,comment.user.id), class:"avatar" do
+        -if comment.user.avatar.present? 
+          = image_tag comment.user.avatar.url, class:"avatar"
+        -else
+          = image_tag "/assets/default.jpg", class:"avatar"
+
+
+      .comment-text= comment.text
+      - if current_user.id == comment.user_id
+        = link_to  topic_tweet_comment_path(@topic,@tweet,comment) ,class: "comment-btn", remote: true, method: :delete do
+          = '削除'
+
+
+-else
+  ※現在、コメントはありません

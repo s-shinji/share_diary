@@ -1,0 +1,45 @@
+.post-info{
+  &__name {
+    .avatar {
+      @include avatar();
+    }
+  }
+  .delete-tweet {
+    display: inline-block;
+    color: gray;
+    margin: 20px 0 30px 250px;
+    border: 1px solid gray;
+    border-radius: 30%;
+    
+    &:hover {
+      color: #6A5ACD;
+    }
+  }
+  
+  
+}
+.post-comments{
+  &__avatar {
+    display:flex;
+    .avatar {
+      @include avatar();
+    }
+
+    .comment-text {
+      font-size: 20px;
+      margin: 5px 0 0 15px;
+    }
+
+    .comment-btn {
+      display: inline-block;
+      color: gray;
+      margin: 20px 0 0 15px;
+      border: 1px solid gray;
+      border-radius: 30%;
+  
+      &:hover {
+        color: #6A5ACD;
+      }
+    }
+  }
+}

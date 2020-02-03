@@ -1,0 +1,32 @@
+.header {
+  height: 80px;
+  width: 100%;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid gray;
+
+  &__left {
+    margin-left: 10px;
+    .link {
+      text-decoration: none;
+      color: #555555;  
+      margin-right: 10px;
+      font-size: 20px;
+      border: 2px solid #555555;
+      border-radius: 10px;
+      padding: 5px;
+    }
+  }
+  
+  &__right {
+    .link {
+      text-decoration: none;
+      color: #555555;  
+      margin-right: 10px;
+      font-weight: bold;
+      font-size: 20px;
+    }
+  }
+}
