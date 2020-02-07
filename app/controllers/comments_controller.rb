@@ -1,7 +1,6 @@
 class CommentsController < ApplicationController
   before_action :set_topic
   before_action :set_tweet
-  # before_action :set_user
 
   def create
     @comment = Comment.create(comment_params)
@@ -30,8 +29,5 @@ class CommentsController < ApplicationController
     @tweet = Tweet.find(params[:tweet_id])
   end
 
-  # def set_user
-  #   @user = Tweet.find(params[:user_id])
-  # end
 end
 

@@ -1,0 +1,76 @@
+.registration {
+  height: 100vh;
+  background-color: #E6FFE9;
+
+  &__box {
+    border: 1px gray solid;
+    background-color: $back-white;
+    width: 500px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    border-radius: 10px;
+    font-size: 25px;
+
+    .info {
+      text-align: center;
+      height: 100%;
+      margin: 30px;
+
+      i {
+        font-size: 50px;
+        color: green;
+        text-decoration: underline;
+      }
+
+      .field {
+        margin: 50px;
+
+        input {
+        border-radius: 5px;
+        }
+
+      }
+
+      .email {
+        margin: 60px 0 60px;
+      }
+      
+      .remember {
+        font-size: 20px;
+        margin-bottom: 30px;
+      }
+
+      .actions input{
+        border: 1px gray solid;
+        border-radius: 10px;
+        cursor: pointer;
+        &:hover {
+          @include btn-color ();
+          @include btn-hover ();    
+        }
+      }
+
+      .registration-link {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 30px;
+
+        .sign-up {
+          @include registration-info ();
+        }
+
+        .forgot {
+          @include registration-info ();
+        }
+
+        .login {
+          @include registration-info ();
+        }
+        
+      }
+    }
+  }
+}
+

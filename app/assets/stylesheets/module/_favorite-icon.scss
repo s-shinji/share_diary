@@ -1,6 +1,7 @@
 .vertical_favorite {
   font-size: 20px;
 }
+
 .favorite-link {
   text-decoration: none;
 
@@ -9,7 +10,7 @@
   }
 
   .gray-text {
-    color: gray;
+    color: $text-gray;
   }
   
 }

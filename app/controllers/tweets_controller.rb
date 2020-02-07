@@ -1,6 +1,5 @@
 class TweetsController < ApplicationController
   before_action :set_topic
-  # before_action :set_user
   def index
     @tweets = @topic.tweets.includes(:user,:images).order('created_at DESC')
   end
@@ -18,13 +17,6 @@ class TweetsController < ApplicationController
       render :new
     end
 
-  end
-
-  def edit
-    # @tweet = @topic.tweet
-  end
-
-  def update
   end
 
   def show
@@ -48,7 +40,4 @@ class TweetsController < ApplicationController
     @topic = Topic.find(params[:topic_id])
   end
 
-  # def set_user
-  #   @user = User.find(params[:user_id])
-  # end
 end

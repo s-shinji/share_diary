@@ -3,3 +3,132 @@
   width: 50px;
   border-radius: 100%;
 }
+
+@mixin logout() {
+  display: inline-block;
+  position: absolute;
+  left: 70px;
+  top: 55px;
+  font-size: 15px;
+  border: 1px solid gray;
+  border-bottom: none;
+  &:hover {
+    background-color: $back-white;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.25);
+    transform: translateY(-0.1875em);
+    border-radius: 5px;
+  }
+
+  a {
+      color: gray;
+      &:hover {
+        color: black;
+      }
+    }
+
+}
+
+@mixin right-module () {
+  float: right;
+  
+  .link {
+    display: inline-block;
+    text-decoration: none;
+    color: #555555;  
+    margin-right: 10px;
+    font-weight: bold;
+    font-size: 20px;
+    &:hover {
+      color: black;
+      box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.25);
+      transform: translateY(-0.1875em);
+      background-color: $back-white;
+      border-radius: 5px;
+    }
+  }
+
+}
+
+@mixin top () {
+  height: 80px;
+  width: 100%;
+  background-color: #CCFF99;
+  align-items: center;
+  justify-content: flex-end;
+  border-bottom: 1px solid gray;
+  display: flex;
+  position: fixed;
+  z-index: 1;
+}
+
+@mixin bottom () {
+  width: 200px;
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin:auto;
+}
+
+@mixin registration-info () {
+  border: 1px gray solid;
+  border-radius: 50%;
+  padding: 5px;
+  font-size: 20px;
+  &:hover {
+    background-color: #EEEEEE;
+    font-weight: bold;
+  }
+
+  a {
+    color: black;
+  }
+
+}
+
+@mixin btn-hover () {
+  box-shadow: 0 3px 6px 0 rgba(43, 31, 31, 0.25);
+  transform: translateY(-0.1875em);
+}
+
+@mixin btn-color () {
+  background-color: $link-gray;
+  color:$text-white;
+  font-weight: bold;
+}
+
+@mixin back-module () {
+  font-size: 30px;
+  color: $text-gray;
+  &:hover {
+    color: black;
+  }
+}
+
+@mixin home () {
+  position: absolute;
+  top: 110px;
+  right: 30px;
+  font-size: 30px;
+  color: $text-gray;
+  &:hover {
+    color: black;
+  }
+}
+
+@mixin box-shadow () {
+  box-shadow: -5px 5px gray;
+}
+
+@mixin main-title () {
+  font-size: 45px;
+  font-weight: bold;
+  text-decoration: underline;
+  font-style: italic;
+}
+
+@mixin title () {
+  font-size: 30px;
+  font-style: italic;
+  text-decoration: underline;  
+}

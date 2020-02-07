@@ -8,8 +8,6 @@ Rails.application.routes.draw do
   resources :users, only: [:show] 
   resources :relationships, only: [:create, :destroy]
 
-  # resources :topics, except: [:show, :destroy] 
-
   resources :topics,  except: [:show, :destroy]  do 
     resources :favorites, only: [:create, :destroy]
     resources :tweets do

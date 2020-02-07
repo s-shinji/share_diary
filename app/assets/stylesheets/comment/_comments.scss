@@ -1,6 +1,88 @@
-.comment-text {
-  font-size: 20px;
+.post-comments{
+  margin-top: 50px;
+
+  h4 {
+    font-size: 25px;
+    font-weight: bold;
+  }
+
+  .comment-bar {
+    background-color: $back-white;
+    display: inline-block;  
+    border: 1px gray ridge;
+    border-radius: 5px;
+    margin-left:100px;
+    margin-top: 30px;
+    padding: 20px 50px;
+    height: 400px;
+    overflow: scroll;
+
+    &__avatar {
+      display:flex;
+
+      .comment-set {
+        border: 1px white solid;
+        border-radius: 10px;
+        background-color: #E6FFE9;
+        padding: 10px;
+
+        .avatar {
+          @include avatar();
+        }
+      
+
+        &__text {
+          font-size: 20px;
+          margin: 5px 0 0 15px;
+        }
+
+      }
+
+      .comment-btn {
+        display: inline-block;
+        color: $text-gray;
+        margin: 20px 0 0 15px;
+        border: 1px solid gray;
+        border-radius: 30%;
+        height: 25px;
+    
+        &:hover {
+          color: $hover-color;
+        }
+
+      }           
+    }
+    
+    #right-side {
+      padding-left: 400px;
+    }
+
+  }
 }
-.comment-btn {
-  color: gray;
+.post-form {
+
+  #new_comment {
+    margin: 50px 0 90px 100px;
+    display: flex;
+    align-items: center;
+
+    .text-area {
+      width: 500px;
+      font-size: 20px;
+      border: 2px gray solid;
+      border-radius: 5px;
+    }
+
+    .submit {
+      margin-left: 50px;
+      border: 1px white solid;
+      cursor: pointer;
+      font-size: 30px;
+      &:hover {
+      @include btn-color ();
+      @include btn-hover ();
+      }
+      
+    }
+  }
 }

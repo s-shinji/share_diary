@@ -1,6 +1,7 @@
 .top
   .top__left
     = icon('fas', 'bars', class: "bars-show")
+  .logout
     = link_to "Logout", destroy_user_session_path, method: :delete
 
   .top__right
@@ -31,15 +32,10 @@
               -else
                 = image_tag "/assets/default.jpg", class:"avatar"
               = following.name
-        -# - current_user.relationships.each do |relationship|
-        -#   .follow
-        -#     = link_to user_path(relationship.user.id),class:"follow-name" do
-        -#       = image_tag relationship.user.avatar.url, class:"avatar"
-        -#       = relationship.user.name
   .search-box
-    %input.input#search-topics{placeholder: "トピック検索", type: "text" }
+    %input#search-topics{placeholder: "トピック検索", type: "text" }
     #search-result
 
 
-.bottom
-  &copy; share_diary 2020.
+  .bottom
+    &copy; share_diary 2020.

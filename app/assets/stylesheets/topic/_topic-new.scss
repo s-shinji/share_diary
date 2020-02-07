@@ -1,10 +1,8 @@
-// Place all the styles related to the topics controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
 
 .content {
-  background-color: #EEFFFF	;
-  height: 100vh;
+  background-color: $main-color;
+  height: calc(100vh - 80px);
+
   &__form {
     padding-top: 30px;
     .form-input {
@@ -14,11 +12,13 @@
       margin: 0 auto;
       border-radius: 5px;
       font-size: 20px;
+      font-weight: bold;
       margin-top: 50px;
     }
 
     .form-btn {
       text-align: center;
+
       .btn {
         display: inline-block;
         border: 1px solid #EEEEEE;
@@ -26,13 +26,22 @@
         font-size: 30px;
         margin-top: 100px;
         cursor: pointer;
-        color: gray;
-        opacity: 0.5;
+        color: $text-gray;
         &:hover {
-          opacity: 1.0;
+          @include btn-color ();
+          @include btn-hover ();
         }
       }
+
     }
   }
+
+  .back {
+    position: absolute;
+    top: 110px;
+    right: 30px;
+    @include back-module ();
+  }
 }
+
 

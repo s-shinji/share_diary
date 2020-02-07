@@ -7,7 +7,7 @@
 -else
   = link_to topic_tweet_likes_path(tweet_id: tweet.id), method: :post, class:"like-link", remote: true do 
     .vertical_like
-      = icon( 'far', 'heart', class:"awesome-icon gray-text text-darken-2")
-      %span.gray-text.text-darken-2
+      = icon( 'far', 'heart', class:"awesome-icon gray-text")
+      %span.gray-text
         = tweet.likes_count 
   

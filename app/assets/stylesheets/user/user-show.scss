@@ -1,68 +1,139 @@
-.user-avatar {
-  height: 200px;
-  width: 200px;
-  border-radius: 100%;
-}
-.user-name {
-  margin-top: 30px;
-}
-.user-info {
-  &__introduce {
-    display: inline-block;
-    border: 1px gray solid;
-  }
-}
-.user-tweets {
-  .tweet-list {
-    padding-left:20px;
-    margin-bottom:30px;
+.user-show {
+  height: 100vh;
+  background-color: $main-color;
+  padding: 30px;
+  padding-left: 100px;
+  overflow: scroll;
 
-    &__name {
-      display: inline-block;
-      cursor: pointer;
+  .user-title {
+    @include main-title ();
+  }
+
+  .user-box {
+    display: flex;
+    position: relative;
+
+    &__avatar {
+
+      .user-avatar{
+      height: 200px;
+      width: 200px;
+      border-radius: 100%;
+      margin-top: 20px;
+      }
+
+      .module {
+        display: flex;
+        margin-left: 10px;
+
+        &__name {
+          margin-left: 80px;
+          font-size: 20px;
+          font-weight: bold;
+        }
+
+      }
     }
 
-    &__item {
-      display: none;
-      margin-left: 20px;
-      .tweet-title {
-        color: gray;
-        display: inline-block;
-        margin-right: 50px;
-        &:hover {
-          color: blue;
+    &__info {
+      margin-left: 50px;
+
+      .introduce-title {
+        @include title ();
+        margin-left: 30px;
+        padding-top: 25px;
+      }
+
+      .introduce-content{
+
+        .introduce {
+          display: inline-block;
+          border: 1px gray solid;
+          background-color: $back-white;
+          width: 500px;
+          height: 200px;
+          margin-top: 30px;
+          margin-left: 100px;
+          border-radius: 10px;
+          font-size: 15px;
+          font-weight: bold;
+          padding: 10px;
         }
+
       }
     }
   }
-}
-.user-follower {
-  .follower-list {
-    padding-left:20px;
-    margin-bottom:30px;
 
-    &__name {
-      display: inline-block;
-      cursor: pointer;
-    }
+  .user-tweets {
+    margin-top: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    font-style: italic;
 
-    &__item {
-      display: none;
-      margin-left: 20px;
-      .follower-avatar {
-        color: gray;
+    .tweet-list {
+      padding-left:20px;
+      margin-bottom:30px;
+
+      &__name {
         display: inline-block;
-        margin-right: 50px;
-        &:hover {
-          color: blue;
+        cursor: pointer;
+      }
+
+      &__item {
+        display: none;
+        margin-left: 20px;
+
+        .tweet-title {
+          color: $text-gray;
+          display: inline-block;
+          margin-right: 50px;
+          &:hover {
+            color: $hover-color;
+          }
         }
 
-        .avatar {
-          @include avatar();
-        }
-      } 
-    }   
+      }
+    }
   }
-}
 
+  .user-follower {
+    font-size: 20px;
+    font-weight: bold;
+    font-style: italic;
+
+    .follower-list {
+      padding-left:20px;
+      margin-bottom:30px;
+
+      &__name {
+        display: inline-block;
+        cursor: pointer;
+      }
+
+      &__item {
+        display: none;
+        margin-left: 20px;
+
+        .follower-avatar {
+          color: $text-gray;
+          display: inline-block;
+          margin-right: 50px;
+          &:hover {
+            color: $hover-color;
+          }
+
+          .avatar {
+            @include avatar();
+          }
+
+        } 
+      }   
+    }
+  }
+
+  .home {
+    @include home ();
+  }
+  
+}
 

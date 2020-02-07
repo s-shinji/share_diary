@@ -5,16 +5,16 @@
 @import "font-awesome-sprockets";
 @import "./font-awesome";
 @import "module/mixin";
+@import "module/color";
 @import "user/devise";
 @import "user/devise-edit";
 @import "layout/header";
 @import "layout/footer";
-@import "topic/topics";
+@import "topic/topic-new";
 @import "topic/topic-index";
-@import "tweet/tweets";
+@import "tweet/tweet-new";
 @import "tweet/tweet-index";
 @import "tweet/tweet-show";
-@import "user/users";
 @import "user/user-show";
 @import "comment/comments";
 @import "module/like-icon";
@@ -22,8 +22,8 @@
 @import "module/avatar";
 @import "module/follow-icon";
 @import "module/bars";
-
-
+@import "registration/registration";
+@import "registration/edit-page";
 
 
 

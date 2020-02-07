@@ -2,7 +2,7 @@
   display: none;
   background-color: silver;
   color: white;
-  width: 200px;
+  width: 450px;
   height: 100%;
   position: fixed;
   top: 80px;
@@ -10,32 +10,61 @@
   z-index: 1;
   border-radius: 5px;
   padding-top: 20px;
+  padding-left: 20px;
+  overflow: scroll;
+
+  .link {
+    display: inline-block;
+    text-decoration: none;
+    color: #555555;  
+    font-size: 20px;
+    border: 2px solid #555555;
+    border-radius: 10px;
+    padding: 5px;
+    margin-bottom:20px;
+    &:hover {
+      border: 2px solid black;
+      border-radius: 10px;  
+      color: black;
+      @include btn-hover ()
+    }
+  }
 
   .list {
     padding-left:20px;
-    margin-bottom:30px;
+    margin:0 0 30px;
 
     &__name {
       cursor: pointer;
+      font-size: 20px;
     }
 
     &__item {
       display: none;
-      margin-left: 20px;
+      margin-left: 10px;
+
       .topic {
+
         .topic-name {
-          color: white;
+          color: $text-white;
           display: block;
+          font-style: italic;
+          font-weight: bold;
+          margin-top: 20px;
         }
+
       }
 
       .follow {
 
         .follow-name {
-          color: white;
+          color: $text-white;
+          font-style: italic;
+
           .avatar{
             @include avatar();
           }  
+          
         }
       }
     }

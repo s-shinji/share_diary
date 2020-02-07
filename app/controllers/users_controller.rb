@@ -7,12 +7,11 @@ class UsersController < ApplicationController
 
   private
   def set_tweet
-    # @tweet = Tweet.find(params[:format])
-    @tweets = Tweet.find(params[:id])
+    @tweets = Tweet.find(params[:tweet_id])
   end
 
   def set_topic
-    @topic = Topic.find(params[:id])
+    @topic = Topic.find(params[:topic_id])
   end
 
 end

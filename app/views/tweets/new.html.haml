@@ -1,30 +1,27 @@
 = render 'shared/header'
 = form_with model: [@topic,@tweet], local: true, class: "post" do |f|
-  %h2.post__top 新規投稿 
-  .post__title
-    =f.text_field :title, class: "title",placeholder: "タイトル入力"
-  -# .post__image
-  -#   .left-box
-  -#     =f.label :image, class: "image-label" do
-  -#       = icon('fas', 'image', class: "icon")
-  -#       =f.file_field :image, class: "file"
-  -#   .right-box
-  -#     =f.label :image, class: "image-label" do
-  -#       = icon('fas', 'image', class: "icon")
-  -#       =f.file_field :image, class: "file"
+  .post__top 新規投稿 
+  .post__box
+    .post-title 
+      .post-title__title Title
+      =f.text_field :title,placeholder: "タイトル入力"
+    .post-text
+      .post-text__text Text
+      = f.text_area :content, placeholder: "テキスト入力", rows: "2"
   #post__image
+    .image-title Image
     #previews
       - if @tweet.persisted? 
         - @tweet.images.each_with_index do |image, i| 
-          = image_tag image.src.url, data: { index: i }, width: "100", height: '100' 
- 
+          = image_tag image.src.url, data: { index: i } 
+
     = f.fields_for :images do |image| 
       .js-file_group{data: {index:  "#{image.index}" }}
         = image.file_field :src, class: "js-file"
         %br
         %span.js-remove 削除
-  .post__text
-    = f.text_area :content, class: "text", placeholder: "テキスト入力", rows: "2"
+
   .post__link
     = f.submit 'SEND', class: 'link'
-= render 'shared/footer'
+  = link_to "Back", :back, class:"back"
+  = render 'shared/footer'

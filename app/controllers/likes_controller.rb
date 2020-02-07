@@ -19,7 +19,4 @@ class LikesController < ApplicationController
     @tweet = Tweet.find(params[:tweet_id])
   end
 
-  # def set_topic
-  #   @topic = Topic.find(params[:topic_id])
-  # end
 end

@@ -11,7 +11,7 @@ $(document).on('turbolinks:load', function() {
     return html;
   }
   const buildImg = function(index, url) {
-    const html = `<img data-index="${index}" src="${url}" width="100px" height="100px">`;
+    const html = `<img data-index="${index}" src="${url}" width="100px" height="100px" style="box-shadow: -5px 5px gray;">`;
     return html;
   }
 

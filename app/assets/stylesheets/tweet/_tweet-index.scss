@@ -1,58 +1,78 @@
 .top {
-  height: 80px;
-  width: 100%;
-  background-color: white;
-  align-items: center;
-  justify-content: flex-end;
-  border-bottom: 1px solid gray;
-  display: flex;
-  // position: relative;
-  position: fixed;
-  z-index: 1;
+  @include top();
 
   &__left {
-    // position: absolute;
-    // left: 30px;
     font-size: 30px;
     color: #000080;
     cursor: pointer;
   }
-  &__right {
-    float: right;
-    .link {
-      display: block;
-      text-decoration: none;
-      color: #555555;  
-      margin-right: 10px;
-      font-weight: bold;
-      font-size: 20px;
+
+  .logout {
+    @include logout();
     }
+  
+  .new-tweet {
+    display: inline-block;
+    position: absolute;
+    left: 140px;
+    top: 50px;
+    font-size: 20px;
+
+    a {
+      color: $text-gray;
+      &:hover {
+        color:#2C7CFF ;
+        font-size: 25px;
+      }
+    }
+
   }
+
+  &__right {
+    @include right-module ();
+  }
+
 }
 
 .main {
+  min-height: calc(100vh - 80px);
   height: 100%;
-  background-color: #FFCC99;
+  background-color: $main-color;
   padding-top: 110px;
+  position: relative;
+
   &__search {
-    display: block;
     margin: 0 auto;
     height: 40px;
-    width: 60%;
+    width: 650px;
     border: 1px solid gray;
-    font-size: 30px;
-    background-color: white;
+    font-size: 23px;
+    font-weight: bold;
+    background-color: $back-white;
     display: flex;
     justify-content: space-between;
+    line-height: 40px;
+    padding-left: 10px;
   }
+
   &__box {
     height: calc(100% - 70px);
     margin-top: 20px;
     display: flex;
-    // overflow: scroll;
+    position: relative;
+
+    .border {
+      height: calc(100% - 30px);
+      position: absolute;
+      left: 50%;
+      border-left: 3px black double;
+      min-height: calc(100vh - 170px);
+    }
+
+
     .left {
       height: 100%;
-      background-color: #FFCC99;
+      background-color: $main-color;
       width: 50%;
       padding-top: 30px;
 
@@ -63,17 +83,21 @@
 
         .text-title {
           margin-left: 40px;
+          font-size: 25px;
+
           &__link {
             text-decoration: none;
-            color: #555555;
+            color: $link-gray;
             font-weight: bold;
           }
+
         }
 
         .text-info {
           display: flex;
           position: absolute;
           right: 40px;
+
           &__name {
             margin: 5px 10px;
 
@@ -88,13 +112,17 @@
 
           }
         }
+
       }
     }
+
     .right {
       height: 100%;
-      background-color: #FFCC99;
+      background-color: $main-color;
       width: 50%;
       padding-top: 30px;
+      padding-left: 30px;
+      margin-bottom: 50px;
 
 
       .image-box {
@@ -103,55 +131,64 @@
 
         .image-title {
           margin-left: 40px;
+          font-size: 25px;
+
           &__link {
             text-decoration: none;
-            color: #555555;
+            color: $link-gray;
             font-weight: bold;
           }
+
         }
 
         .image-info {
           display: flex;
           position: absolute;
           right: 40px;
+
           &__name {
             margin: 0 10px;
 
             .avatar {
               @include avatar();
             }
+
           }
 
           &__time {
             margin: 5px 10px;
 
           }
-        }
-          .image {
-            display: inline-flex;
-            width: 100px;
-            margin-left: 80px;
-            margin-top: 80px;
 
-            .image-tag {
-              height: 100px;
-              width: 120px;
-              margin-top: 30px;
-              margin-left: 30px;
-              border-radius: 10px;
-            }
+        }
+        
+        .image-tag {
+          display: inline-flex;
+          width: 100px;
+          margin-left: 80px;
+          margin-top: 80px;
+
+          &__image {
+            height: 100px;
+            width: 100px;
+            margin-top: 30px;
+            margin-left: 30px;
+            border-radius: 10px;
+            @include box-shadow ();
           }
+          
+        }
       }
     }
   }
+
+  .bottom {
+    @include bottom();
+    }
+    
 }
 
-
-.bottom {
-  background-color: #FFCC99;
-  height: 30px;
-  text-align: center;
-  line-height: 30px;
-  padding-bottom: 10px;
-
-}
+// .height-modify {
+//   height: 100vh;
+//   min-height: ;
+// }

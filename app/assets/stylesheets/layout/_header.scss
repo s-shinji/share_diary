@@ -1,7 +1,7 @@
 .header {
   height: 80px;
   width: 100%;
-  background-color: white;
+  background-color: #CCFF99;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -9,24 +9,32 @@
 
   &__left {
     margin-left: 10px;
+
     .link {
       text-decoration: none;
-      color: #555555;  
+      color: $link-gray;  
       margin-right: 10px;
       font-size: 20px;
-      border: 2px solid #555555;
+      border: 2px solid $link-gray;
       border-radius: 10px;
       padding: 5px;
+      &:hover {
+        border: 2px solid black;
+        border-radius: 10px;  
+        color: black;
+        @include btn-hover ();
+        background-color: $back-white;
+      }  
+
     }
+  }
+
+  .logout {
+    @include logout();
   }
   
   &__right {
-    .link {
-      text-decoration: none;
-      color: #555555;  
-      margin-right: 10px;
-      font-weight: bold;
-      font-size: 20px;
-    }
+    @include right-module();
   }
+  
 }
