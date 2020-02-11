@@ -3,6 +3,7 @@
   background-color: $main-color	;
   overflow: scroll;
   position: relative;
+  padding-top: 80px;
 
   &__top {
     font-size: 40px;
@@ -42,7 +43,7 @@
       
       #tweet_content {
         padding: 5px;
-        width: 500px;
+        width: 600px;
         font-size: 25px;
         border-radius: 10px;
         border: 3px gray solid;

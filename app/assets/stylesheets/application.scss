@@ -2,10 +2,10 @@
   text-decoration: none;
 }
 @import "layout/reset";
+@import "module/color";
+@import "module/mixin";
 @import "font-awesome-sprockets";
 @import "./font-awesome";
-@import "module/mixin";
-@import "module/color";
 @import "user/devise";
 @import "user/devise-edit";
 @import "layout/header";
@@ -24,11 +24,4 @@
 @import "module/bars";
 @import "registration/registration";
 @import "registration/edit-page";
-
-
-
-
-
-
-
- 
+@import "module/flash";

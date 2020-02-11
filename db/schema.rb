@@ -80,15 +80,6 @@ ActiveRecord::Schema.define(version: 2020_01_29_070635) do
     t.index ["user_id"], name: "index_tweets_on_user_id"
   end
 
-  create_table "user_topics", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "topic_id", null: false
-    t.bigint "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["topic_id"], name: "index_user_topics_on_topic_id"
-    t.index ["user_id"], name: "index_user_topics_on_user_id"
-  end
-
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", default: "", null: false
@@ -99,6 +90,7 @@ ActiveRecord::Schema.define(version: 2020_01_29_070635) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "avatar"
+    t.text "introduce"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -112,6 +104,4 @@ ActiveRecord::Schema.define(version: 2020_01_29_070635) do
   add_foreign_key "relationships", "users", column: "follow_id"
   add_foreign_key "tweets", "topics"
   add_foreign_key "tweets", "users"
-  add_foreign_key "user_topics", "topics"
-  add_foreign_key "user_topics", "users"
 end

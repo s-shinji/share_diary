@@ -58,6 +58,7 @@
           font-size: 15px;
           font-weight: bold;
           padding: 10px;
+          overflow: scroll;
         }
 
       }
@@ -130,10 +131,5 @@
       }   
     }
   }
-
-  .home {
-    @include home ();
-  }
-  
 }
 

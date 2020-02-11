@@ -16,15 +16,18 @@
     padding: 20px 50px;
     height: 400px;
     overflow: scroll;
+    min-width: 500px;
 
     &__avatar {
       display:flex;
 
       .comment-set {
+        min-width: 100px;
         border: 1px white solid;
         border-radius: 10px;
         background-color: #E6FFE9;
         padding: 10px;
+        position: relative;
 
         .avatar {
           @include avatar();
@@ -39,18 +42,32 @@
       }
 
       .comment-btn {
+        position: absolute;
+        top: 0;
+        left: 50px;
         display: inline-block;
         color: $text-gray;
         margin: 20px 0 0 15px;
         border: 1px solid gray;
         border-radius: 30%;
-        height: 25px;
+        // height: 25px;
     
         &:hover {
           color: $hover-color;
         }
 
-      }           
+      }
+      // .delete-tweet {
+      //   display: inline-block;
+      //   color: $text-gray;
+      //   border: 1px solid gray;
+      //   border-radius: 30%;
+      //   margin-left: 10px;    
+      //   &:hover {
+      //     color: $hover-color;
+      //   }
+      // }
+       
     }
     
     #right-side {

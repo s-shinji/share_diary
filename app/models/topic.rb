@@ -1,4 +1,5 @@
 class Topic < ApplicationRecord
+  validates :name, presence: true
   has_many :user_topics
   has_many :users, through: :user_topics
   has_many :tweets

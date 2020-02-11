@@ -14,6 +14,7 @@ class TweetsController < ApplicationController
     if @tweet.save
       redirect_to topic_tweets_path(@topic)
     else
+      flash.now[:alert] = "タイトルとテキストを入力してください"
       render :new
     end
 

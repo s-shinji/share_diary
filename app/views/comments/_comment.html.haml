@@ -14,10 +14,9 @@
             %span.comment-set__text
               = simple_format(comment.text)
 
-              -# = comment.text
-          - if current_user.id == comment.user_id
-            = link_to  topic_tweet_comment_path(@topic,@tweet,comment) ,class: "comment-btn", remote: true, method: :delete do
-              = '削除'
+            - if current_user.id == comment.user_id
+              = link_to  topic_tweet_comment_path(@topic,@tweet,comment) ,class: "comment-btn", remote: true, method: :delete do
+                = '削除'
       -else
         .comment-bar__avatar#left-side
           .comment-set
@@ -30,10 +29,6 @@
 
             %span.comment-set__text
               = simple_format(comment.text)
-        -# - if current_user.id == comment.user_id
-        -#   = link_to  topic_tweet_comment_path(@topic,@tweet,comment) ,class: "comment-btn", remote: true, method: :delete do
-        -#     = '削除'
-
 
 
 -else

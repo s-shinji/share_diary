@@ -17,6 +17,7 @@ class TopicsController < ApplicationController
     if @topic.save
       redirect_to root_path
     else 
+      flash.now[:alert] = "トピック名を入力してください"
       render :new
     end
   end

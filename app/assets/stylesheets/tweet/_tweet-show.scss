@@ -4,6 +4,7 @@
   overflow: scroll;
   position: relative;
   padding-left: 150px;
+  padding-top: 80px;
 
   &__box{
 
@@ -51,9 +52,13 @@
 
       }
 
+      .left-box {
+        margin-left: 300px;
+      }
+
       &__text {
         margin-top: 30px;
-        margin-left: 250px;
+        margin-left: 150px;
 
         .text-title {
           @include title ();
@@ -65,7 +70,7 @@
 
           &__content {
             padding: 5px;
-            width: 500px;
+            width: 600px;
             font-size: 25px;
             border-radius: 10px;
             border: 3px gray solid;  
@@ -87,9 +92,4 @@
       }
     }
   }
-
-  .home {
-    @include home ();
-  }
-
 }

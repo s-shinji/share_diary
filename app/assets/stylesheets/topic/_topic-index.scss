@@ -19,10 +19,11 @@
 }
 
 .search{
-  height: calc(100vh - 110px);
+  height: 100%;
   background-color: $main-color;
   padding-top: 110px;
   position: relative;
+  min-height: calc(100vh - 110px);
 
   #search-topics {
     display: block;

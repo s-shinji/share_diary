@@ -9,7 +9,7 @@ Bundler.require(*Rails.groups)
 module ShareDiary
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 5.2
+    # config.load_defaults 5.2
     # config.logger = Logger.new(STDOUT)
 
     # Settings in config/environments/* take precedence over those specified here.
@@ -17,5 +17,6 @@ module ShareDiary
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
     config.time_zone = 'Tokyo'
+    config.i18n.default_locale = :ja
   end
 end

@@ -3,9 +3,16 @@ class CommentsController < ApplicationController
   before_action :set_tweet
 
   def create
-    @comment = Comment.create(comment_params)
+    @comment = @tweet.comments.new(comment_params)
     @comments = @tweet.comments.includes(:user)
-    redirect_to  topic_tweet_path(@topic,@tweet)
+    if @comment.save
+      respond_to do |format|
+        format.json
+      end
+    else
+      @comments = @tweet.comments.includes(:user)
+      render ("tweets/show.html.haml")
+    end
   end
 
   def destroy
@@ -28,6 +35,4 @@ class CommentsController < ApplicationController
   def set_tweet
     @tweet = Tweet.find(params[:tweet_id])
   end
-
 end
-
