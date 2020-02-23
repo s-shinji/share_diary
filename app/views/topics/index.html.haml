@@ -2,7 +2,7 @@
   .top__left
     = icon('fas', 'bars', class: "bars-show")
   .logout
-    = link_to "Logout", destroy_user_session_path, method: :delete
+    = link_to "ログアウト", destroy_user_session_path, method: :delete
 
   .top__right
     = link_to 'トピック作成', new_topic_path, class: 'link'
@@ -12,7 +12,7 @@
   .bars-list
     .list
       .list__name
-        topic
+        トピック
         %span +
       .list__item
         - current_user.favorites.each do |favorite|
@@ -21,7 +21,7 @@
               = favorite.topic.name 
     .list
       .list__name
-        follow
+        フォロー
         %span +
       .list__item
         - current_user.followings.each do |following|

@@ -1,7 +1,44 @@
 #edit_user {
+  .edit-box {
+    display: flex;
+    flex-direction: column;
+    &__upper {
+      display: flex;
+      justify-content: space-around;
 
-  textarea {
-    width: 100%;
+      .email{
+          font-style: italic;
+          margin-top: 20px;
+
+        .email-label {
+          @include title ();
+        }
+
+        .email-input {
+          padding: 5px;
+          font-size: 20px;
+          border-radius: 10px;
+          margin-top: 30px;
+        }
+      }
+    }
+
+    &__lower {
+      display: flex;
+      margin-left: 30px;
+      textarea {
+        width: 100%;
+      }
+      .introduce{
+        width: 500px;
+      }
+
+      .actions {
+        font-size: 25px;
+        margin-bottom: 20px;
+        margin-left: 800px;
+      }
+    }
   }
-  
 }
+

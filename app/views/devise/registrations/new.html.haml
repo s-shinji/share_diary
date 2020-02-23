@@ -1,27 +1,27 @@
 .registration
+  = render "devise/shared/error_messages", resource: resource
   .registration__box
     .info
-      %i Sign up
+      %i 新規登録
       = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-        = render "devise/shared/error_messages", resource: resource
         .field
-          = f.text_field :name, autofocus: true, placeholder: "Name"
+          = f.text_field :name, autofocus: true, placeholder: "名前"
 
         .field
-          = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email"
+          = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Eメール"
 
         .field
           - if @minimum_password_length
             %em
-              (#{@minimum_password_length} characters minimum)
+              (６文字以上の英数字)
           %br/
-          = f.password_field :password, autocomplete: "new-password", placeholder: "Password"
+          = f.password_field :password, autocomplete: "new-password", placeholder: "パスワード"
         .field
-          = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Password Again"
+          = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "パスワード(確認用)"
         .actions
-          = f.submit "Sign up"
+          = f.submit "新規登録"
         .registration-link
           .login
             - if controller_name != 'sessions'
-              = link_to "Log in", new_session_path(resource_name)
+              = link_to "ログイン", new_session_path(resource_name)
 

@@ -3,7 +3,9 @@
     = icon('fas', 'bars',class: "bars-show")
 
   .logout
-    = link_to "Logout", destroy_user_session_path, method: :delete
+    = link_to "ログアウト", destroy_user_session_path, method: :delete
+  #popup
+    投稿
   .new-tweet
     = link_to new_topic_tweet_path(@topic) do
       = icon('fas', 'paper-plane')
@@ -16,10 +18,10 @@
 
 .main
   .bars-list
-    = link_to 'Top', root_path, class: 'link'
+    = link_to 'トップ', root_path, class: 'link'
     .list
       .list__name
-        topic
+        トピック
         %span +
       .list__item
         - current_user.favorites.each do |favorite|
@@ -29,7 +31,7 @@
 
     .list
       .list__name
-        follow
+        フォロー
         %span +
       .list__item
         - current_user.followings.each do |following|

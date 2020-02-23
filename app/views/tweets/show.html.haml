@@ -2,50 +2,53 @@
 .post-show
 
   .post-show__box
-    .post-title
-      = @tweet.title
-    .post-info
-      .post-info__name
-        = link_to topic_tweet_user_path(@topic,@tweet,@tweet.user.id) do
-          -if @tweet.user.avatar.present? 
-            = image_tag @tweet.user.avatar.url, class:"avatar"
-          -else
-            = image_tag "/assets/default.jpg", class:"avatar"
+    .post-show__box__top
+      .post-title
+        = @tweet.title
+      .post-info
+        .post-info__name
+          = link_to topic_tweet_user_path(@topic,@tweet,@tweet.user.id) do
+            -if @tweet.user.avatar.present? 
+              = image_tag @tweet.user.avatar.url, class:"avatar"
+            -else
+              = image_tag "/assets/default.jpg", class:"avatar"
 
 
-      .post-info__time
-        = @tweet.created_at.to_s(:datetime_jp)
-    - if @tweet.images.present?
-      .post-box
-        .post-box__image
-          - @tweet.images.each do |image|
-            =  link_to image.src.url, 'data-lightbox': "group" do 
-              = image_tag image.src.url, class:"image-tag"
-        .post-box__text
-          .text-title Text
-          .text-box
-            .text-box__content
-              = simple_format(@tweet.content)
-            - if current_user.id == @tweet.user_id
-              = link_to  topic_tweet_path(@topic,@tweet) ,class: "delete-tweet", remote: true, method: :delete do
-                = '削除'
-    - else
-      .post-box
-        .post-box__text.left-box
-          .text-title Text
-          .text-box
-            .text-box__content
-              = simple_format(@tweet.content)
-            - if current_user.id == @tweet.user_id
-              = link_to  topic_tweet_path(@topic,@tweet) ,class: "delete-tweet", remote: true, method: :delete do
-                = '削除'
+        .post-info__time
+          = @tweet.created_at.to_s(:datetime_jp)
+    .post-show__box__middle
+      - if @tweet.images.present?
+        .post-box
+          .post-box__image
+            - @tweet.images.each do |image|
+              =  link_to image.src.url, 'data-lightbox': "group" do 
+                = image_tag image.src.url, class:"image-tag"
+          .post-box__text
+            .text-title テキスト
+            .text-box
+              .text-box__content
+                = simple_format(@tweet.content)
+              - if current_user.id == @tweet.user_id
+                = link_to  topic_tweet_path(@topic,@tweet) ,class: "delete-tweet", remote: true, method: :delete do
+                  = '削除'
+      - else
+        .post-box
+          .only-text
+            .text-title テキスト
+            .text-box
+              .text-box__content
+                = simple_format(@tweet.content)
+              - if current_user.id == @tweet.user_id
+                = link_to  topic_tweet_path(@topic,@tweet) ,class: "delete-tweet", remote: true, method: :delete do
+                  = '削除'
 
-    .post-comments
-      = render partial: 'comments/comment', locals: {comments: @comments} 
+    .post-show__box__bottom
+      .post-comments
+        = render partial: 'comments/comment', locals: {comments: @comments} 
 
-    .post-form
-      = form_with(model: [@topic,@tweet,@comment], local: true, id: "new_comment") do |f|
-        = f.text_area :text, placeholder: "コメントする(30文字以内)" , rows: "2", class: "text-area", maxlength:"30"
-        = f.submit "SEND", class: "submit" 
+      .post-form
+        = form_with(model: [@topic,@tweet,@comment], local: true, id: "new_comment") do |f|
+          = f.text_area :text, placeholder: "コメントする(30文字以内)" , rows: "2", class: "text-area", maxlength:"30"
+          = f.submit "送信", class: "submit" 
 
-    = render 'shared/footer'
+      = render 'shared/footer'
