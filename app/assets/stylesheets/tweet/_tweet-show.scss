@@ -3,93 +3,132 @@
   height: 100%;
   overflow: scroll;
   position: relative;
-  padding-left: 150px;
+  padding-left: 50px;
   padding-top: 80px;
 
   &__box{
-
-    .post-title {
-      padding-top: 50px;
-      @include main-title ();
-    }
-
-
-    .post-info{
+    &__top {
       display: flex;
-      margin-top: 60px;
-      margin-left: 700px;
+      justify-content: space-between;
+      padding: 0 50px;
 
-      &__name {
+      .post-title {
+        padding-top: 50px;
+        @include main-title ();
+      }
 
-        .avatar {
-          @include avatar();
+
+      .post-info{
+        display: flex;
+        margin-top: 200px;
+
+        &__name {
+
+          .avatar {
+            @include avatar();
+          }
+
+        }
+
+        &__time {
+          margin-top: 20px;
+          margin-left: 20px;
         }
 
       }
-
-      &__time {
-        margin-top: 20px;
-        margin-left: 20px;
-      }
-
     }
 
-
-    .post-box {
+    &__middle {
       display: flex;
+      justify-content: space-between;
+      padding: 0 50px;
+      margin-top: 20px;
+      .post-box {
+        display: flex;
 
-      &__image{
+        &__image{
 
-        .image-tag {
-          height: 150px;
-          width: 150px;
-          @include box-shadow ();
-          &:hover {
-              transform: scale(1.1);
-              transition-duration: 0.3s;
-          }
-        }
-
-      }
-
-      .left-box {
-        margin-left: 300px;
-      }
-
-      &__text {
-        margin-top: 30px;
-        margin-left: 150px;
-
-        .text-title {
-          @include title ();
-          }
-
-        .text-box {
-          display: flex;
-          align-items: center;
-
-          &__content {
-            padding: 5px;
-            width: 600px;
-            font-size: 25px;
-            border-radius: 10px;
-            border: 3px gray solid;  
-            background-color: $back-white;
-          }
-
-          .delete-tweet {
-            display: inline-block;
-            color: $text-gray;
-            border: 1px solid gray;
-            border-radius: 30%;
-            margin-left: 10px;    
+          .image-tag {
+            height: 150px;
+            width: 150px;
+            @include box-shadow ();
             &:hover {
-              color: $hover-color;
+                transform: scale(1.1);
+                transition-duration: 0.3s;
             }
           }
 
-        }       
+        }
+
+        &__text {
+          margin-left: 35px;
+
+          .text-title {
+            @include title ();
+            }
+
+          .text-box {
+            display: flex;
+            align-items: center;
+
+            &__content {
+              padding: 5px;
+              width: 600px;
+              font-size: 25px;
+              border-radius: 10px;
+              border: 3px gray solid;  
+              background-color: $back-white;
+            }
+
+            .delete-tweet {
+              display: inline-block;
+              color: $text-gray;
+              border: 1px solid gray;
+              border-radius: 30%;
+              margin-left: 10px;    
+              &:hover {
+                color: $hover-color;
+              }
+            }
+
+          }       
+        }
+        .only-text {
+          .text-title {
+            @include title ();
+            }
+
+          .text-box {
+            display: flex;
+            align-items: center;
+
+            &__content {
+              padding: 5px;
+              width: 600px;
+              font-size: 25px;
+              border-radius: 10px;
+              border: 3px gray solid;  
+              background-color: $back-white;
+            }
+
+            .delete-tweet {
+              display: inline-block;
+              color: $text-gray;
+              border: 1px solid gray;
+              border-radius: 30%;
+              margin-left: 10px;    
+              &:hover {
+                color: $hover-color;
+              }
+            }
+
+          }
+        }
       }
+    }
+
+    &__bottom {
+      padding: 0 50px;
     }
   }
 }

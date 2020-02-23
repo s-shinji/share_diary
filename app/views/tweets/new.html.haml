@@ -1,27 +1,29 @@
 = render 'shared/header'
 = form_with model: [@topic,@tweet], local: true, class: "post" do |f|
   .post__top 新規投稿 
-  .post__box
+  .post__upper
     .post-title 
-      .post-title__title Title
+      .post-title__title タイトル
       =f.text_field :title,placeholder: "タイトル入力(20字以内)", maxlength: "20", id:"tweet_title"
     .post-text
-      .post-text__text Text
+      .post-text__text テキスト
       = f.text_area :content, placeholder: "テキスト入力", rows: "2", id:"tweet_content"
-  #post__image
-    .image-title Image
-    #previews
-      - if @tweet.persisted? 
-        - @tweet.images.each_with_index do |image, i| 
-          = image_tag image.src.url, data: { index: i } 
 
-    = f.fields_for :images do |image| 
-      .js-file_group{data: {index: "#{image.index}" }}
-        = image.file_field :src, class: "js-file"
-        %br
-        %span.js-remove 削除
+  .post__lower
+    #post__image
+      .image-title 写真
+      #previews
+        - if @tweet.persisted? 
+          - @tweet.images.each_with_index do |image, i| 
+            = image_tag image.src.url, data: { index: i } 
 
-  .post__link
-    = f.submit 'SEND', class: 'link'
-  = link_to "Back", :back, class:"back"
-  = render 'shared/footer'
+      = f.fields_for :images do |image| 
+        .js-file_group{data: {index: "#{image.index}" }}
+          = image.file_field :src, class: "js-file"
+          %br
+          %span.js-remove 削除
+
+    .post__lower__link
+      = f.submit '送信', class: 'link'
+    = link_to "戻る", :back, class:"back"
+    = render 'shared/footer'

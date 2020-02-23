@@ -9,14 +9,15 @@
     font-size: 40px;
     text-align: center;
     padding: 30px;
+    margin-right: 50px;
   }
 
-  &__box {
+  &__upper {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    padding: 0 150px;
 
     .post-title {
-
       &__title {
         font-size: 30px;
         font-style: italic;
@@ -38,7 +39,7 @@
       &__text {
           font-size: 30px;
           font-style: italic;
-          text-decoration: underline;  
+          text-decoration: underline; 
       }
       
       #tweet_content {
@@ -52,48 +53,51 @@
     }
   }
 
-  #post__image {
-    margin-left: 150px;
+  &__lower {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 150px;
+    margin-top: 80px;
+    #post__image {
 
-    .image-title {
+      .image-title {
+          font-size: 30px;
+          font-style: italic;
+          text-decoration: underline;
+      }
+
+    }
+
+
+    &__link {
+      display: inline-block;
+      height: 50px;
+
+      .link {
         font-size: 30px;
-        font-style: italic;
-        text-decoration: underline;
+        width: 200px;
+        padding: 10px;
+        border: 1px solid white;
+        border-radius: 50px;
+        cursor: pointer;
+        margin-bottom: 30px;
+        margin-right: 430px;
+        margin: 100px 430px 30px 0;
+        &:hover {
+          @include btn-color ();
+          @include btn-hover ();
+        }     
+      }
+
     }
 
-  }
-
-
-  &__link {
-    display: inline-block;
-    height: 50px;
-    position: absolute;
-    right: 0;
-    bottom: 20%;
-
-    .link {
-      font-size: 30px;
-      width: 200px;
-      padding: 10px;
-      border: 1px solid white;
-      border-radius: 50px;
-      cursor: pointer;
+    .back {
       position: absolute;
-      right: 400px;
-      margin-bottom: 30px;
-      &:hover {
-        @include btn-color ();
-        @include btn-hover ();
-      }     
+      top: 110px;
+      right: 30px;
+      @include back-module ();
     }
 
-  }
-
-  .back {
-    position: absolute;
-    top: 110px;
-    right: 30px;
-    @include back-module ();
   }
   
 }

@@ -1,134 +1,141 @@
 .user-show {
-  height: 100vh;
+  height: calc(100vh - 80px);
   background-color: $main-color;
   padding: 30px;
+  padding-top: 80px;
   padding-left: 100px;
   overflow: scroll;
 
   .user-title {
     @include main-title ();
   }
+  .container{
+    &__upper {
+      display: flex;
+      justify-content: space-around;
+      position: relative;
 
-  .user-box {
-    display: flex;
-    position: relative;
+      .avatar {
 
-    &__avatar {
-
-      .user-avatar{
-      height: 200px;
-      width: 200px;
-      border-radius: 100%;
-      margin-top: 20px;
-      }
-
-      .module {
-        display: flex;
-        margin-left: 10px;
-
-        &__name {
-          margin-left: 80px;
-          font-size: 20px;
-          font-weight: bold;
+        .user-avatar{
+        height: 200px;
+        width: 200px;
+        border-radius: 100%;
+        margin-top: 20px;
         }
 
+        .module {
+          display: flex;
+          justify-content: space-around;
+
+          &__name {
+            margin-left: 80px;
+            font-size: 20px;
+            font-weight: bold;
+          }
+
+        }
+      }
+
+      .info {
+        margin-left: 50px;
+
+        .introduce-title {
+          @include title ();
+          margin-left: 30px;
+          padding-top: 25px;
+        }
+
+        .introduce-content{
+
+          .introduce {
+            display: inline-block;
+            border: 1px gray solid;
+            background-color: $back-white;
+            width: 500px;
+            height: 200px;
+            margin-top: 30px;
+            margin-left: 100px;
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: bold;
+            padding: 10px;
+            overflow: scroll;
+          }
+
+        }
       }
     }
-
-    &__info {
+    &__lower {
+      display: flex;
+      flex-direction: column;
       margin-left: 50px;
+      .user-tweets {
+        margin-top: 50px;
+        font-size: 20px;
+        font-weight: bold;
+        font-style: italic;
 
-      .introduce-title {
-        @include title ();
-        margin-left: 30px;
-        padding-top: 25px;
-      }
+        .tweet-list {
+          padding-left:20px;
+          margin-bottom:30px;
 
-      .introduce-content{
+          &__name {
+            display: inline-block;
+            cursor: pointer;
+          }
 
-        .introduce {
-          display: inline-block;
-          border: 1px gray solid;
-          background-color: $back-white;
-          width: 500px;
-          height: 200px;
-          margin-top: 30px;
-          margin-left: 100px;
-          border-radius: 10px;
-          font-size: 15px;
-          font-weight: bold;
-          padding: 10px;
-          overflow: scroll;
-        }
+          &__item {
+            display: none;
+            margin-left: 20px;
 
-      }
-    }
-  }
+            .tweet-title {
+              color: $text-gray;
+              display: inline-block;
+              margin-right: 50px;
+              &:hover {
+                color: $hover-color;
+              }
+            }
 
-  .user-tweets {
-    margin-top: 50px;
-    font-size: 20px;
-    font-weight: bold;
-    font-style: italic;
-
-    .tweet-list {
-      padding-left:20px;
-      margin-bottom:30px;
-
-      &__name {
-        display: inline-block;
-        cursor: pointer;
-      }
-
-      &__item {
-        display: none;
-        margin-left: 20px;
-
-        .tweet-title {
-          color: $text-gray;
-          display: inline-block;
-          margin-right: 50px;
-          &:hover {
-            color: $hover-color;
           }
         }
-
-      }
-    }
-  }
-
-  .user-follower {
-    font-size: 20px;
-    font-weight: bold;
-    font-style: italic;
-
-    .follower-list {
-      padding-left:20px;
-      margin-bottom:30px;
-
-      &__name {
-        display: inline-block;
-        cursor: pointer;
       }
 
-      &__item {
-        display: none;
-        margin-left: 20px;
+      .user-follower {
+        font-size: 20px;
+        font-weight: bold;
+        font-style: italic;
 
-        .follower-avatar {
-          color: $text-gray;
-          display: inline-block;
-          margin-right: 50px;
-          &:hover {
-            color: $hover-color;
+        .follower-list {
+          padding-left:20px;
+          margin-bottom:30px;
+
+          &__name {
+            display: inline-block;
+            cursor: pointer;
           }
 
-          .avatar {
-            @include avatar();
-          }
+          &__item {
+            display: none;
+            margin-left: 20px;
 
-        } 
-      }   
+            .follower-avatar {
+              color: $text-gray;
+              display: inline-block;
+              margin-right: 50px;
+              &:hover {
+                color: $hover-color;
+              }
+
+              .avatar {
+                @include avatar();
+              }
+
+            } 
+          }   
+        }
+      }
     }
   }
 }
