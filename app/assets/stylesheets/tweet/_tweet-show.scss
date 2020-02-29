@@ -17,6 +17,10 @@
         @include main-title ();
       }
 
+      .homeIcon{
+        @include home();
+      }
+
 
       .post-info{
         display: flex;

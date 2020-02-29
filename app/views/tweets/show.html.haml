@@ -5,6 +5,8 @@
     .post-show__box__top
       .post-title
         = @tweet.title
+      = link_to topic_tweets_path(@topic) do
+        = icon('fas', 'home',class:"homeIcon")
       .post-info
         .post-info__name
           = link_to topic_tweet_user_path(@topic,@tweet,@tweet.user.id) do
