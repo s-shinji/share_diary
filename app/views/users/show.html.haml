@@ -32,7 +32,7 @@
               %span +
             .tweet-list__item
               - @user.tweets.each do |tweet|
-                = link_to topic_tweet_path(@topic,tweet.id),class: "tweet-title", data: {"turbolinks"=>false}  do
+                = link_to topic_tweet_path(tweet.topic.id,tweet.id),class: "tweet-title", data: {"turbolinks"=>false}  do
                   = tweet.title
       .user-follower
         - if @user.followers
