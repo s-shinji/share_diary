@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!, except: :show
   before_action :set_tweet
   before_action :set_topic
+
   def show
     @user = User.find(params[:id])
   end

@@ -1,11 +1,12 @@
 class Topic < ApplicationRecord
+
   validates :name, presence: true, length: { maximum: 25}
-  has_many :user_topics
-  has_many :users, through: :user_topics
+
   has_many :tweets
   has_many :comments
+  has_many :favorites
 
-  
+
   def self.search(input)
     return nil if input == ""
     Topic.where(['name LIKE ?', "%#{input}%"])

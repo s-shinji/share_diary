@@ -14,7 +14,7 @@
     margin-left:100px;
     margin-top: 30px;
     padding: 20px 50px;
-    height: 400px;
+    max-height: 400px;
     overflow: scroll;
     min-width: 500px;
 
@@ -50,24 +50,12 @@
         margin: 20px 0 0 15px;
         border: 1px solid gray;
         border-radius: 30%;
-        // height: 25px;
     
         &:hover {
           color: $hover-color;
         }
 
       }
-      // .delete-tweet {
-      //   display: inline-block;
-      //   color: $text-gray;
-      //   border: 1px solid gray;
-      //   border-radius: 30%;
-      //   margin-left: 10px;    
-      //   &:hover {
-      //     color: $hover-color;
-      //   }
-      // }
-       
     }
     
     #right-side {
