@@ -26,6 +26,7 @@ ja:
         unlock_token: ロック解除用トークン
         updated_at: 更新日
         introduce: 自己紹介
+        name: 名前
     models:
       user: ユーザ
   devise:

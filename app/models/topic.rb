@@ -1,5 +1,5 @@
 class Topic < ApplicationRecord
-  validates :name, presence: true
+  validates :name, presence: true, length: { maximum: 25}
   has_many :user_topics
   has_many :users, through: :user_topics
   has_many :tweets
