@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 2020_01_29_070635) do
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "src"
-    t.bigint "tweet_id"
+    t.bigint "tweet_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["tweet_id"], name: "index_images_on_tweet_id"
@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 2020_01_29_070635) do
   end
 
   create_table "tweets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.text "content"
+    t.text "content", null: false
     t.bigint "user_id", null: false
     t.bigint "topic_id", null: false
     t.datetime "created_at", null: false
@@ -95,6 +95,9 @@ ActiveRecord::Schema.define(version: 2020_01_29_070635) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "comments", "topics"
+  add_foreign_key "comments", "tweets"
+  add_foreign_key "comments", "users"
   add_foreign_key "favorites", "topics"
   add_foreign_key "favorites", "users"
   add_foreign_key "images", "tweets"

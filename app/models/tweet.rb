@@ -1,6 +1,6 @@
 class Tweet < ApplicationRecord
   validates :content, presence: true
-  validates :title, presence: true
+  validates :title, presence: true, length: {maximum: 20}
 
   has_many :comments, dependent: :destroy
   belongs_to :user
