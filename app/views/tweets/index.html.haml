@@ -3,7 +3,11 @@
     = icon('fas', 'bars',class: "bars-show")
 
   .logout
-    = link_to "ログアウト", destroy_user_session_path, method: :delete
+    -if user_signed_in?
+      = link_to "ログアウト", destroy_user_session_path, method: :delete
+    -else
+      = link_to new_user_registration_path, class:"lower__registration" do
+        会員登録
   #popup
     投稿
   .new-tweet
@@ -18,30 +22,33 @@
 
 .main
   .bars-list
+    = link_to 'ホーム', topics_path, class: 'link'
     = link_to 'トップ', root_path, class: 'link'
     .list
       .list__name
         トピック
         %span +
       .list__item
-        - current_user.favorites.each do |favorite|
-          .topic
-            = link_to topic_tweets_path(favorite.topic.id),class: "topic-name" do
-              = favorite.topic.name 
+        -if user_signed_in?
+          - current_user.favorites.each do |favorite|
+            .topic
+              = link_to topic_tweets_path(favorite.topic.id),class: "topic-name" do
+                = favorite.topic.name 
 
     .list
       .list__name
         フォロー
         %span +
       .list__item
-        - current_user.followings.each do |following|
-          .follow
-            = link_to user_path(following.id),class:"follow-name" do
-              -if following.avatar.present? 
-                = image_tag following.avatar.url, class:"avatar"
-              -else
-                = image_tag "/assets/default.jpg", class:"avatar"
-              = following.name
+        -if user_signed_in?
+          - current_user.followings.each do |following|
+            .follow
+              = link_to user_path(following.id),class:"follow-name" do
+                -if following.avatar.present? 
+                  = image_tag following.avatar.url, class:"avatar"
+                -else
+                  = image_tag "/assets/default.jpg", class:"avatar"
+                = following.name
   .main__search
     = @topic.name
     #favorites_buttons{id: @topic.id}

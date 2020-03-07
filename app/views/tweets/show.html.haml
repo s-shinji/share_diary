@@ -30,9 +30,10 @@
             .text-box
               .text-box__content
                 = simple_format(@tweet.content)
-              - if current_user.id == @tweet.user_id
-                = link_to  topic_tweet_path(@topic,@tweet) ,class: "delete-tweet", remote: true, method: :delete do
-                  = '削除'
+              -if user_signed_in?
+                - if current_user.id == @tweet.user_id
+                  = link_to  topic_tweet_path(@topic,@tweet) ,class: "delete-tweet", remote: true, method: :delete do
+                    = '削除'
       - else
         .post-box
           .only-text

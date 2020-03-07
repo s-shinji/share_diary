@@ -1,4 +1,5 @@
 class TweetsController < ApplicationController
+  before_action :authenticate_user!, except: [:index,:show]
   before_action :set_topic
   def index
     @tweets = @topic.tweets.includes(:user,:images).order('created_at DESC')

@@ -1,5 +1,6 @@
 class TopicsController < ApplicationController
-  # before_action :set_topic,:set_item
+  before_action :authenticate_user!, except: :index
+  
   def index
     @topic = Topic.all
     @topics = Topic.search(params[:keyword])
@@ -23,22 +24,8 @@ class TopicsController < ApplicationController
     end
   end
 
-  def edit
-  end
-
-  def update
-  end
-
   private
   def topic_params
     params.require(:topic).permit(:name)
   end
-
-  #  def set_topic
-  #   @topic = Topic.find(params[:id])
-  #  end
-
-  #  def set_item
-  #   @item = Item.find(params[:id])
-  #  end
 end

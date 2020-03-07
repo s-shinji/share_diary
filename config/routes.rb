@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'likes/create'
   get 'likes/destroy'
   devise_for :users, controllers: { registrations: 'users/registrations' }
-  root "topics#index"
+  root "top#index"
   resources :users, only: [:show] 
   resources :relationships, only: [:create, :destroy]
 
