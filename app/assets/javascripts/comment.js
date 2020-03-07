@@ -32,9 +32,11 @@ $(document).on('turbolinks:load', function() {
       contentType: false
     })
     .done(function(data){
-      var html = buildHTML(data);
+      var html = buildHTML(data);          
       $('.comment-bar').append(html);
+      if($('.comment-bar__avatar').length !== 0) {
       $('.comment-bar').animate({ scrollTop: $('.comment-bar')[0].scrollHeight});
+      }
       $("#new_comment")[0].reset();
       $(".submit").prop("disabled", false);   
     })
