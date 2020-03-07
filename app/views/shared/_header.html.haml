@@ -1,8 +1,13 @@
 .header
   .header__left
-    = link_to 'トップ', root_path, class: 'link'
+    = link_to 'トップ', topics_path, class: 'link'
   .logout
-    = link_to "ログアウト", destroy_user_session_path, method: :delete
+    -if user_signed_in?
+      = link_to "ログアウト", destroy_user_session_path, method: :delete
+    -else
+      = link_to new_user_registration_path, class:"lower__registration" do
+        会員登録
+
 
 
 

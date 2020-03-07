@@ -1,0 +1,44 @@
+.top-page
+  .new-modal-wrapper#new-modal
+    .modal
+      %h1 share_diaryへようこそ！
+      %br
+        %h2このアプリでは気になるトピックを登録、検索し日記を投稿することで、
+        %br
+        %h2人との繋がりや学びを得ることができます。
+        %br
+        %br
+        登録なしでは機能に制限がございますので、
+        %br
+        初めての方向けにサンプルデータをご用意しました。
+        %br
+        %br
+        会員登録ページからログイン画面へ行き、以下のデータでログインしてください。
+        %br
+        名前：サンプルくん
+        %br
+        Eメール：sample@gmail.com
+        %br
+        パスワード：sample
+        %br
+        %br
+        また、検索トピック名には以下をお試しください。
+        %br
+        検索トピック名：旅行
+
+      .close-modal
+        =icon('fas','times',class:"times")
+  .top-page__box
+    .title
+      share_diary
+    .upper#call-modal
+      初めての方へ
+    .lower
+      -if user_signed_in?
+        = link_to topics_path, class:"lower__no-registration" do
+          そのまま始める
+      -else 
+        = link_to new_user_registration_path, class:"lower__registration" do
+          会員登録
+        = link_to topics_path, class:"lower__no-registration" do
+          そのまま始める
