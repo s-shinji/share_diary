@@ -5,6 +5,13 @@
   background-color: $back-white;
 }
 
+@mixin avatar2() {
+  height: 200px;
+  width: 200px;
+  border-radius: 100%;
+  background-color: $back-white;
+}
+
 @mixin logout() {
   display: inline-block;
   position: absolute;

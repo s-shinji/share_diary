@@ -18,10 +18,8 @@
       .avatar {
 
         .user-avatar{
-        height: 200px;
-        width: 200px;
-        border-radius: 100%;
-        margin-top: 20px;
+          @include avatar2();
+          margin-top: 20px;
         }
 
         .module {
