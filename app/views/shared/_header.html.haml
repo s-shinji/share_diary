@@ -1,6 +1,6 @@
 .header
   .header__left
-    = link_to 'トップ', topics_path, class: 'link'
+    = link_to 'ホーム', topics_path, class: 'link'
   .logout
     -if user_signed_in?
       = link_to "ログアウト", destroy_user_session_path, method: :delete
