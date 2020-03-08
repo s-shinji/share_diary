@@ -10,21 +10,17 @@
         %br
         登録なしでは機能に制限がございますので、
         %br
-        初めての方向けにサンプルデータをご用意しました。
+        初めての方向けにゲストユーザーをご用意しました。
         %br
         %br
-        会員登録ページからログイン画面へ行き、以下のデータでログインしてください。
-        %br
-        名前：サンプルくん
-        %br
-        Eメール：sample@gmail.com
-        %br
-        パスワード：sample
+        = link_to 'ゲストユーザーでログイン', top_guest_sign_in_path, method: :post, class:"guest-user"
         %br
         %br
         また、検索トピック名には以下をお試しください。
         %br
         検索トピック名：旅行
+        %br
+        検索トピック名：プログラミング
 
       .close-modal
         =icon('fas','times',class:"times")

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'likes/destroy'
   devise_for :users, controllers: { registrations: 'users/registrations' }
   root "top#index"
+  post '/top/guest_sign_in', to: 'top#new_guest'
   resources :users, only: [:show] 
   resources :relationships, only: [:create, :destroy]
 

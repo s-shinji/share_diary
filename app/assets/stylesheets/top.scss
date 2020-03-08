@@ -13,6 +13,7 @@
     border: gray 1px solid;
     display: none;
       .modal{
+        margin-left: 50px;
         h1{
           font-size: 30px;
           text-decoration: underline;
@@ -29,7 +30,13 @@
         border-radius: 10px;
         width: 600px;
         height: auto;
-        text-align: center;     
+        text-align: center; 
+        .guest-user {
+          color:black ;
+          font-weight: bold;
+          text-decoration: underline;
+          font-style: italic;
+        }    
         
       .close-modal{    
         .times{
