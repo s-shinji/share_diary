@@ -52,6 +52,6 @@
       .post-form
         = form_with(model: [@topic,@tweet,@comment], local: true, id: "new_comment") do |f|
           = f.text_area :text, placeholder: "コメントする(30文字以内)" , rows: "2", class: "text-area", maxlength:"30"
-          = f.submit "送信", class: "submit" 
+          = f.submit "送信", class: "submit"
 
       = render 'shared/footer'

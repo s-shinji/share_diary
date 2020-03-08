@@ -8,7 +8,7 @@
             -if comment.user.avatar.present? 
               = image_tag comment.user.avatar.url, class:"avatar"
             -else
-              = image_tag "/assets/default.jpg", class:"avatar"
+              = image_tag "default.jpg", class:"avatar"
 
           %span.comment-set__text
             = simple_format(comment.text)
@@ -23,7 +23,7 @@
             -if comment.user.avatar.present? 
               = image_tag comment.user.avatar.url, class:"avatar"
             -else
-              = image_tag "/assets/default.jpg", class:"avatar"
+              = image_tag "default.jpg", class:"avatar"
 
 
         %span.comment-set__text
