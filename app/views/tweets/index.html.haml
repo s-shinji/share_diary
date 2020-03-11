@@ -57,7 +57,7 @@
           -if user_signed_in?
             - current_user.likes.each do |like|
               .like
-                = link_to topic_tweet_path(like.tweet.topic.id,like.tweet.id), class:"like-name" do
+                = link_to topic_tweet_path(like.tweet.topic.id,like.tweet.id), class:"like-name", data: {"turbolinks"=>false}  do
                   = like.tweet.title
   .main__search
     = @topic.name
