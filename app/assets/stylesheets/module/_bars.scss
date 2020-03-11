@@ -3,7 +3,7 @@
   background-color: silver;
   color: white;
   width: 450px;
-  height: 100%;
+  height: calc(100vh - 80px);
   position: fixed;
   top: 80px;
   left: 0;
@@ -67,6 +67,15 @@
           
         }
       }
+      
+      .like {
+
+        .like-name {
+          color: $text-white;
+          font-style: italic;
+        }
+      }
+
     }
   }
 }
