@@ -54,6 +54,30 @@
     }
 
   }
+  .search-lower{
+    position: relative;
+    margin-top: 20px;
+    .tool-tip{
+      width: 470px;
+      margin: 0 auto;
+      padding: 5px 8px;
+      color: white;
+      font-size: 20px;
+      font-weight: bold;
+      background: $text-gray;
+      border-radius: 8px;
+    }
+    .tool-tip:after {
+      width: 100px;
+      content: "";
+      position: absolute;
+      left: 350px;
+      top: -8px;
+      border-top:8px solid transparent;
+      border-left:8px solid $text-gray;
+
+    }
+  }
 }
 
 .bottom {
