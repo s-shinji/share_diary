@@ -29,7 +29,7 @@
             .text-title テキスト
             .text-box
               .text-box__content
-                = simple_format(@tweet.content)
+                = safe_join(@tweet.content.split("\n"), tag.br)
               -if user_signed_in?
                 - if current_user.id == @tweet.user_id
                   = link_to  topic_tweet_path(@topic,@tweet) ,class: "delete-tweet", remote: true, method: :delete do
@@ -40,7 +40,6 @@
             .text-title テキスト
             .text-box
               .text-box__content
-                -# = simple_format(@tweet.content)
                 = safe_join(@tweet.content.split("\n"), tag.br)
               - if current_user.id == @tweet.user_id
                 = link_to  topic_tweet_path(@topic,@tweet) ,class: "delete-tweet", remote: true, method: :delete do
