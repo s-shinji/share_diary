@@ -12,6 +12,11 @@
     = link_to 'トピック作成', new_topic_path, class: 'link'
     = link_to 'マイページ', edit_user_registration_path, class: 'link'
 
+.tool-tip 
+  こちらに検索したいキーワードを入力してください
+  .tool-tip__comment
+    ※例として旅行、プログラミングのみ表示しております 
+
 .search
   .bars-list
     = link_to 'トップ', root_path, class: 'link'
@@ -42,9 +47,10 @@
   .search-box
     %input#search-topics{placeholder: "トピック検索", type: "text" }
     #search-result
-  .search-lower
-    .tool-tip こちらに検索したいキーワードを入力してください
-
+      = link_to "/topics/2/tweets",class:"topics" do
+        旅行
+      = link_to "/topics/12/tweets",class:"topics" do
+        プログラミング
 
   .bottom
     &copy; share_diary 2020.
